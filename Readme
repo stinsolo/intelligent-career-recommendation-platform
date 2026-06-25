@@ -1,0 +1,110 @@
+# 🚀 CareerAI - Intelligent Career Recommendation Platform
+
+An AI-powered career platform that analyzes resumes and recommends personalized job opportunities using OpenAI LLMs and Selenium LinkedIn scraping.
+
+---
+
+## 📦 Project Structure
+
+```
+career_platform/
+├── app.py                  # Main Streamlit entry point
+├── requirements.txt        # Python dependencies
+├── users.json              # Auto-generated user database
+└── pages/
+    ├── auth.py             # Login & Registration (Module 1)
+    ├── dashboard.py        # Home dashboard
+    ├── resume.py           # Resume upload & parsing (Module 1)
+    ├── insights.py         # AI Resume Analysis (Module 2)
+    ├── jobs.py             # Job scraping & recommendations (Module 3)
+    └── settings.py         # API keys & configuration
+```
+
+---
+
+## 🛠️ Setup & Installation
+
+### 1. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 2. (Optional) Install Chrome Driver for Selenium
+```bash
+pip install webdriver-manager
+```
+Or download ChromeDriver matching your Chrome version from: https://chromedriver.chromium.org/
+
+### 3. Run the Application
+```bash
+streamlit run app.py
+```
+
+---
+
+## 🔑 Configuration
+
+1. **OpenAI API Key** — Go to `Settings` inside the app and paste your key.
+   - Get one at: https://platform.openai.com/api-keys
+   - The platform uses `gpt-4o-mini` (fast & affordable)
+
+2. **LinkedIn Scraping** — Two modes available:
+   - **AI Mode (Recommended):** Uses OpenAI to generate realistic, matched job listings
+   - **Selenium Mode:** Scrapes real LinkedIn public job pages (no login required for basic scraping)
+
+---
+
+## 🧩 Modules
+
+### Module 1: User Registration & Resume Analysis
+- Secure user registration with hashed passwords
+- PDF resume upload (via PyPDF2/pdfplumber)
+- Plain text resume paste option
+- Local JSON-based user storage
+
+### Module 2: AI-Powered Resume Insights
+- GPT-4o-mini powered resume analysis
+- Overall score (1-10), ATS score, content score, formatting score
+- Strengths, gaps, target roles, missing keywords
+- 5+ personalized recommendations with priority levels
+- Industry fit and certification recommendations
+
+### Module 3: LinkedIn Scraping & Job Recommendations
+- Selenium headless Chrome scraping of LinkedIn jobs
+- Fallback to AI-generated realistic job listings
+- Match scoring per candidate profile
+- Job cards with company, location, requirements, salary
+
+---
+
+## 🌐 Tech Stack
+
+| Component | Technology |
+|-----------|-----------|
+| Frontend | Streamlit |
+| AI/LLM | OpenAI GPT-4o-mini |
+| Web Scraping | Selenium + ChromeDriver |
+| PDF Parsing | PyPDF2, pdfplumber |
+| Auth | SHA-256 + JSON storage |
+| Styling | Custom CSS (dark theme) |
+
+---
+
+## 📸 Features at a Glance
+
+- 🌙 Dark themed, modern UI
+- 🔐 Secure user accounts
+- 📊 Visual resume scoring dashboard  
+- 🤖 GPT-powered analysis & recommendations
+- 🌐 Real LinkedIn job scraping (Selenium)
+- 🎯 AI-generated personalized job matches
+- 📄 PDF & text resume support
+- ⚡ Session-based, no cloud dependency
+
+---
+
+## ⚠️ Notes
+
+- LinkedIn may block automated scraping. Use AI mode if Selenium fails.
+- Keep your OpenAI API key private.
+- The app runs fully locally — no data is sent anywhere except to OpenAI's API.
